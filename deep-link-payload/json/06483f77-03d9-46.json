@@ -1,0 +1,28 @@
+{
+  "context": {
+    "ttl": "PT30S",
+    "city": "{{context.city}}",
+    "action": "search",
+    "bap_id": "{{context.bap_id}}",
+    "bpp_id": "ondcpreprodb2b.rapidor.co",
+    "domain": "ONDC:RET10",
+    "bap_uri": "{{context.bap_uri}}",
+    "bpp_uri": "https://ondcpreprodb2b.rapidor.co/v1/ondc/seller",
+    "country": "{{context.country}}",
+    "timestamp": "{{context.timestamp}}",
+    "message_id": "{{context.message_id}}",
+    "core_version": "1.2.0",
+    "transaction_id": "{{context.transaction_id}}"
+  },
+  "message": {
+    "intent": {
+      "payment": {
+        "@ondc/org/buyer_app_finder_fee_type": "percent",
+        "@ondc/org/buyer_app_finder_fee_amount": 5
+      },
+      "provider": {
+        "id": "rsfp"
+      }
+    }
+  }
+}
