@@ -1,0 +1,34 @@
+{
+  "context": {
+    "ttl": "PT30S",
+    "city": "{{context.city}}",
+    "action": "search",
+    "bap_id": "{{context.bap_id}}",
+    "domain": "ONDC:RET10",
+    "bap_uri": "{{context.bap_uri}}",
+    "country": "{{context.country}}",
+    "timestamp": "{{context.timestamp}}",
+    "message_id": "{{context.message_id}}",
+    "core_version": "1.2.0",
+    "transaction_id": "{{context.transaction_id}}"
+  },
+  "message": {
+    "intent": {
+      "items": [
+        {
+          "id": "string",
+          "descriptor": {
+            "code": "sds",
+            "name": "sdsd"
+          },
+          "category_id": "sdsd",
+          "parent_item_id": "string"
+        }
+      ],
+      "payment": {
+        "@ondc/org/buyer_app_finder_fee_type": "percent",
+        "@ondc/org/buyer_app_finder_fee_amount": 5
+      }
+    }
+  }
+}
