@@ -1,0 +1,200 @@
+{
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "required": [
+    "context",
+    "message"
+  ],
+  "properties": {
+    "context": {
+      "type": "object",
+      "required": [
+        "domain",
+        "action",
+        "country",
+        "city",
+        "core_version",
+        "bap_id",
+        "bap_uri",
+        "transaction_id",
+        "message_id",
+        "timestamp",
+        "ttl"
+      ],
+      "properties": {
+        "ttl": {
+          "type": "string",
+          "const": "PT30S",
+          "$comment": "filler:system"
+        },
+        "city": {
+          "type": "string",
+          "$comment": "filler:consumer"
+        },
+        "action": {
+          "type": "string",
+          "const": "search",
+          "$comment": "filler:system"
+        },
+        "bap_id": {
+          "type": "string",
+          "$comment": "filler:consumer"
+        },
+        "domain": {
+          "type": "string",
+          "const": "ONDC:RET10",
+          "oneOf": [
+            {
+              "const": "ONDC:RET10",
+              "title": "Grocery"
+            },
+            {
+              "const": "ONDC:RET12",
+              "title": "Fashion"
+            },
+            {
+              "const": "ONDC:RET13",
+              "title": "BPC"
+            }
+          ],
+          "$comment": "filler:user"
+        },
+        "bap_uri": {
+          "type": "string",
+          "$comment": "filler:consumer"
+        },
+        "country": {
+          "type": "string",
+          "$comment": "filler:consumer"
+        },
+        "timestamp": {
+          "type": "string",
+          "$comment": "filler:consumer"
+        },
+        "message_id": {
+          "type": "string",
+          "$comment": "filler:consumer"
+        },
+        "core_version": {
+          "type": "string",
+          "const": "1.2.0",
+          "$comment": "filler:system"
+        },
+        "transaction_id": {
+          "type": "string",
+          "$comment": "filler:consumer"
+        }
+      }
+    },
+    "message": {
+      "type": "object",
+      "required": [
+        "intent"
+      ],
+      "properties": {
+        "intent": {
+          "type": "object",
+          "required": [
+            "items",
+            "payment"
+          ],
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "descriptor",
+                  "category_id"
+                ],
+                "properties": {
+                  "descriptor": {
+                    "type": "object",
+                    "required": [
+                      "name",
+                      "code"
+                    ],
+                    "properties": {
+                      "code": {
+                        "type": "string",
+                        "const": "sds",
+                        "$comment": "filler:user"
+                      },
+                      "name": {
+                        "type": "string",
+                        "const": "sds",
+                        "$comment": "filler:user"
+                      }
+                    }
+                  },
+                  "category_id": {
+                    "type": "string",
+                    "const": "Grocery - Fruits and Vegetables",
+                    "oneOf": [
+                      {
+                        "const": "Grocery - Fruits and Vegetables",
+                        "title": "Grocery - Fruits and Vegetables"
+                      },
+                      {
+                        "const": "Grocery - Masala & Seasoning",
+                        "title": "Grocery - Masala & Seasoning"
+                      },
+                      {
+                        "const": "Grocery - Oil & Ghee",
+                        "title": "Grocery - Oil & Ghee"
+                      },
+                      {
+                        "const": "Fashion - Shirts",
+                        "title": "Fashion - Shirts"
+                      },
+                      {
+                        "const": "Fashion - T Shirts",
+                        "title": "Fashion - T Shirts"
+                      },
+                      {
+                        "const": "Fashion - Sweatshirts",
+                        "title": "Fashion - Sweatshirts"
+                      },
+                      {
+                        "const": "BPC - Fragrance",
+                        "title": "BPC - Fragrance"
+                      },
+                      {
+                        "const": "BPC - Bath Soaps and Gels",
+                        "title": "BPC - Bath Soaps and Gels"
+                      },
+                      {
+                        "const": "BPC - Hair Care",
+                        "title": "BPC - Hair Care"
+                      }
+                    ],
+                    "$comment": "filler:user"
+                  }
+                }
+              }
+            },
+            "payment": {
+              "type": "object",
+              "required": [
+                "@ondc/org/buyer_app_finder_fee_type",
+                "@ondc/org/buyer_app_finder_fee_amount"
+              ],
+              "properties": {
+                "@ondc/org/buyer_app_finder_fee_type": {
+                  "type": "string",
+                  "const": "percent",
+                  "$comment": "filler:system"
+                },
+                "@ondc/org/buyer_app_finder_fee_amount": {
+                  "type": "string",
+                  "const": "5",
+                  "$comment": "filler:system"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
